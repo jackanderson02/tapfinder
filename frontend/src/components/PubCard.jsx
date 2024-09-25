@@ -24,17 +24,18 @@ const PubCard = ({ pub}) => {
         //     beer_url:"https://i2-prod.hulldailymail.co.uk/news/uk-world-news/article8592028.ece/ALTERNATES/s810/0_PinPep_Fosters_Campaign_011JPG.jpg"},
         // ];
 
-        // setBeers(initialBeers);
-
         try {
-                const response = await fetch('http://localhost:5000/api/endpoint'); // Update with your endpoint
+                const response = await fetch('http://localhost:5000/pubs/' + pub.id + '/beers'); // Update with your endpoint
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const result = await response.json();
-                setData(result);git 
+                setBeers(result);
             } catch (err) {
-                setError(err);
+                console.log(err)
+            }
+        
+        // setBeers(initialBeers);
     };
 
     useEffect(() => {
