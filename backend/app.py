@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
-import psycopg2
-from psycopg2 import sql
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app)
 
 # Sample data for pubs and beers
 pubs_list = [
