@@ -68,6 +68,7 @@ const Home = () => {
     <>
       <h2>Welcome to Tapfinder</h2>
       <PubList pubs={pubs} beers={beers}></PubList>
+      <Map></Map>
     </>
   );
 };
