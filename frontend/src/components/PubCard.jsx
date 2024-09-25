@@ -7,44 +7,46 @@ import Cookies from 'js-cookie'
 import Stack from "react-bootstrap/Stack"
 import Beer from "./Beer";
 
-const PubCard = ({ pub }) => {
-    // const { basket, setBasket } = useContext(BasketContext);
-    // const [selectedProduct, setSelectedProduct] = useState(null);
+const PubCard = ({ pub}) => {
 
-    // const handleShowModal = (product) => {
-    //     setSelectedProduct(product);
-    // };
+    const [beers, setBeers] = useState([]);
 
-    const pubClicked = (pub) => {
-        console.log(pub)
-    }
+    const fetchBeers = async () => {
+        // For now just return some dummy data
+        const initialBeers= [
+        {id: 1, name: "Thatchers", type : "cider"},
+        {id: 2, name: "Guiness", type : "Stout"},
+        {id: 3, name: "Fosters", type : "Lager"},
+        ];
 
-    // const handleCloseModal = () => {
-    //     setSelectedProduct(null);
-    // };
+        setBeers(initialBeers);
+    };
 
-    // useEffect(() => {
-    //     Cookies.set('basket', JSON.stringify(basket), { expires: 1000 });
-    // }, [basket]);
-
+    useEffect(() => {
+        fetchBeers(); 
+    }, []); 
 
     return(
         <>
-            <div className="card" onClick={() => pubClicked(pub)}>
+            <div key={pub.id} className="card" onClick={() => pubClicked(pub)}>
                 <img  src={pub.pub_url} className="card-img-top" alt={pub.name} />
                 <div className="card-body">
                 <h5 className="card-title">{pub.name}</h5>
                 <p className="card-text">Open time: {pub.open_time_hour + ":00"}</p>
                 <p className="card-text">Close time: {pub.close_time_hour + ":00"}</p>
                 </div>
-
-                
-                
             </div>
-            <Stack direction="horizontal" gap={0}>
-                <Beer beer={beer}></Beer>
-                <Beer beer={beer}></Beer>
+            <Stack direction="horizontal" spacing={0} gap={1}>
+                {
+                    beers.map((beer) => (
+                        <Beer beer={beer}></Beer>
+                    ))
+                }
+
             </Stack>
+                
+                
+            
 
         </>
     )

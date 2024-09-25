@@ -5,11 +5,7 @@ import ClosedCard from './ClosedCard'
 import PubCard from './PubCard';
 import { useState, useEffect } from 'react';
 
-const PubsList = ({ pubs}) => {
-  useEffect(() => {
-    console.log((new Date()).getHours())
-  })
-
+const PubsList = ({ pubs, beers}) => {
     return (
     <>
       <h3>Available pubs</h3>
@@ -37,7 +33,8 @@ PubCard.propTypes = {
         name: PropTypes.string.isRequired,
         open_time_hour: PropTypes.number.isRequired,
         close_time_hour: PropTypes.number.isRequired,
-        pub_image: PropTypes.string.isRequired
+        pub_url: PropTypes.string.isRequired
     }).isRequired,
 };
+
 export default PubsList;
