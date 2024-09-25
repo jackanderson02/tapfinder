@@ -1,61 +1,88 @@
-import { useState, useEffect } from 'react';
-import ProductList from '../components/ProductList'; // Import the presentational component
+import { useState, useEffect } from "react";
+import PubList from "../components/PubsList"; // Import the presentational component
+import Map from "../components/Map";
 
 const Home = () => {
   // State to store products data
-  const [products, setProducts] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [pubs, setPubs] = useState([]);
 
-  // Load in environment variables
+  const fetchPubs = async () => {
+    // For now just return some dummy data
+    const initialPubs = [
+      {
+        id: 1,
+        name: "The Winchester",
+        open_time_hour: 11,
+        close_time_hour: 20,
+        pub_url:
+          "https://movie-locations.com/movies/s/Shaun-Of-The-Dead-Monson-Road.jpg",
+        lat: 51.4761,
+        lng: -0.0015,
+      },
+      {
+        id: 2,
+        name: "The Boozer",
+        open_time_hour: 8,
+        close_time_hour: 23,
+        pub_url:
+          "https://cdn.prod.website-files.com/647991321943a79a7deddbb2/65ed8f0da756275eb6db2308_655f32e7367b50bb663da593_%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%258F%2596%25E7%2595%25AB%25E9%259D%25A2%25202023-11-23%2520190920.png",
+        lat: 51.4633,
+        lng: -0.1913,
+      },
+      {
+        id: 3,
+        name: "Sinclair Arms",
+        open_time_hour: 17,
+        close_time_hour: 18,
+        pub_url: "",
+        lat: 51.5033,
+        lng: -0.1195,
+      },
 
+      {
+        id: 4,
+        name: "Chug Chug Go!",
+        open_time_hour: 13,
+        close_time_hour: 20,
+        pub_url: "",
+        lat: 51.5128,
+        lng: -0.0918,
+      },
+      // { id: 2, name: 'Pub 2', price: 20, stock_count: 0 },
+      // { id: 3, name: 'Pub 3', price: 30, stock_count: 5 },
+      // { id: 4, name: 'Pub 4', price: 40, stock_count: 0 },
+      // { id: 5, name: 'Pub 5', price: 50, stock_count: 1000 },
+    ];
+
+    setPubs(initialPubs);
+  };
 
   useEffect(() => {
-      
-      const initialProducts = [
-        { id: 1, name: 'Product 1', price: 10, stock_count: 10},
-        { id: 2, name: 'Product 2', price: 20, stock_count:0},
-        { id: 3, name: 'Product 3', price: 30, stock_count:5},
-        { id: 4, name: 'Product 4', price: 40, stock_count:0},
-        { id: 5, name: 'Product 5', price: 50, stock_count:1000},
-      ];
+    fetchPubs(); // Call fetchPubs when the component mounts
+  }, []); // Empty dependency array ensures this runs only once
 
-      setProducts(initialProducts); //assign to our empty array
+  const [beers, setBeers] = useState([]);
 
+  const fetchBeers = async () => {
+    // For now just return some dummy data
+    const initialBeers = [
+      { id: 1, name: "Thatchers", type: "cider" },
+      { id: 2, name: "Guiness", type: "Stout" },
+      { id: 3, name: "Fosters", type: "Lager" },
+    ];
+
+    setBeers(initialBeers);
+  };
+
+  useEffect(() => {
+    fetchBeers();
   }, []);
-
-  const fetchData = async () => {
-      try {
-        // Fetch data from the API endpoint
-        const response = await fetch('https://acr-jack-anderson-e6c9ggghffgsdugq.uksouth-01.azurewebsites.net/api/users');
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        
-        const data = await response.json();
-
-        setUsers(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
 
   return (
     <>
-      <h2>Welcome to our Online Store</h2>
-
-      <h2>Users</h2>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            {user.name}
-          </li>
-        ))}
-      </ul>
-      {/* Render the ProductList component and pass products as props */}
-      <ProductList products={products} />
+      <h2>Welcome to Tapfinder</h2>
+      {/* <PubList pubs={pubs} beers={beers}></PubList> */}
+      <Map pubs={pubs}></Map>
     </>
   );
 };

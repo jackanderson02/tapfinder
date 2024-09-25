@@ -1,13 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
-import { useContext } from "react";
-import BasketLink from '../components/BasketLink';
 import { BasketContext } from "../components/BasketContext";
 import { House, Book, Mailbox } from 'react-bootstrap-icons';
 
 
 
 const Layout = () => {
-      const { basket } = useContext(BasketContext);
 
   return (
     <>
@@ -23,15 +20,6 @@ const Layout = () => {
                 <Link className="nav-link" to="/">Home <House></House></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/blogs">Blogs <Book></Book></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact">Contact <Mailbox> </Mailbox></Link>
-              </li>
-              <li className="nav-item">
-                <BasketLink></BasketLink>
-
-
               </li>
             </ul>
           </div>
