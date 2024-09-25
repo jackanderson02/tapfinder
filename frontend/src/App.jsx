@@ -1,20 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
-import { BasketContext } from './components/BasketContext';
-import { useState, useEffect } from 'react';
-import Basket from './pages/Basket';
-import Cookies from 'js-cookie'
-
+import Pub from "./pages/Pub";
+import { BasketContext } from "./components/BasketContext";
+import { useState, useEffect } from "react";
+import Basket from "./pages/Basket";
+import Cookies from "js-cookie";
 
 const App = () => {
   let initBasketState;
 
-  const basketCookie = Cookies.get('basket');
+  const basketCookie = Cookies.get("basket");
 
   if (basketCookie) {
     initBasketState = JSON.parse(basketCookie); // Parse the stringified cookie to an object
@@ -24,7 +24,7 @@ const App = () => {
 
   const [basket, setBasket] = useState(initBasketState);
   return (
-    <BasketContext.Provider value={{basket, setBasket}}>
+    <BasketContext.Provider value={{ basket, setBasket }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -33,6 +33,7 @@ const App = () => {
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
             <Route path="basket" element={<Basket />} />
+            <Route path="pub" element={<Pub />} />
           </Route>
         </Routes>
       </BrowserRouter>
