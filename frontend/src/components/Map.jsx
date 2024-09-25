@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 
 const MapComponent = () => {
   const position = [51.505, -0.09]; // Replace with your desired latitude and longitude
+  const position2 = [52.505, -0.19]; // Replace with your desired latitude and longitude
 
   return (
     <MapContainer
@@ -16,6 +17,10 @@ const MapComponent = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       <Marker position={position}>
+        <Popup>A popup for your marker.</Popup>
+      </Marker>
+
+      <Marker position={position2}>
         <Popup>A popup for your marker.</Popup>
       </Marker>
     </MapContainer>

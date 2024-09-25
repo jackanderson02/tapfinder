@@ -22,7 +22,6 @@ const PubsList = ({ pubs, beers }) => {
           </div>
         ))}
       </div>
-      <Map />
     </>
   );
 };
