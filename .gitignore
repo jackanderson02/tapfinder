@@ -1,2 +1,6 @@
 *.json
+<<<<<<< HEAD
 frontend/node_modules/*
+=======
+node_modules/
+>>>>>>> 545d729de561a2e453eea08e088445d86ed3db6f
