@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import PubList from '../components/PubsList'; // Import the presentational component
+import { useState, useEffect } from "react";
+import PubList from "../components/PubsList"; // Import the presentational component
 
 const Home = () => {
   // State to store products data
