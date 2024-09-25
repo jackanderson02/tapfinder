@@ -5,7 +5,7 @@ import ClosedCard from './ClosedCard'
 import PubCard from './PubCard';
 import { useState, useEffect } from 'react';
 
-const PubsList = ({ pubs, beers}) => {
+const PubsList = ({ pubs}) => {
     return (
     <>
       <h3>Available pubs</h3>
