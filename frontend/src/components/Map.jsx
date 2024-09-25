@@ -19,7 +19,7 @@ const MapComponent = ({ prop }) => {
 
       {prop.map((pub, i) => {
         return (
-          <Marker position={[pub[i].lat, pub[i].lng]}>
+          <Marker position={[pub.lat, pub.lng]}>
             <Popup>A popup for your marker.</Popup>
           </Marker>
         );
