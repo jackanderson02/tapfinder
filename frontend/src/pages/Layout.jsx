@@ -23,13 +23,13 @@ const Layout = () => {
                 <Link className="nav-link" to="/">Home <House></House></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/blogs">Blogs <Book></Book></Link>
+                {/* <Link className="nav-link" to="/blogs">Blogs <Book></Book></Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">Contact <Mailbox> </Mailbox></Link>
               </li>
               <li className="nav-item">
-                <BasketLink></BasketLink>
+                <BasketLink></BasketLink> */}
 
 
               </li>
