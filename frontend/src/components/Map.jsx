@@ -20,14 +20,10 @@ const MapComponent = ({ prop }) => {
       {prop.map((pub, i) => {
         return (
           <Marker position={[pub.lat, pub.lng]}>
-            <Popup>A popup for your marker.</Popup>
+            <Popup>{pub.name}</Popup>
           </Marker>
         );
       })}
-
-      <Marker position={position}>
-        <Popup>A popup for your marker.</Popup>
-      </Marker>
     </MapContainer>
   );
 };
