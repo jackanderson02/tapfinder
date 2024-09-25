@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import PubList from '../components/PubsList'; // Import the presentational component
+import { useState, useEffect } from "react";
+import PubList from "../components/PubsList"; // Import the presentational component
 
 const Home = () => {
   // State to store products data
@@ -8,7 +8,7 @@ const Home = () => {
   const fetchPubs = async () => {
     // For now just return some dummy data
     const initialPubs = [
-      { id: 1, name: 'Pub 1', open_time_ms: 10, close_time_ms: 10 },
+      { id: 1, name: "Pub 1", open_time_ms: 10, close_time_ms: 10 },
       // { id: 2, name: 'Pub 2', price: 20, stock_count: 0 },
       // { id: 3, name: 'Pub 3', price: 30, stock_count: 5 },
       // { id: 4, name: 'Pub 4', price: 40, stock_count: 0 },
