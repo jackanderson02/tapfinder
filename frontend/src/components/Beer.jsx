@@ -11,7 +11,7 @@ const Beer = ({beer}) => {
       <div>
       <h5 >{beer.name}</h5>
       <p >Type: {beer.type}</p>
-      <p >Price: £{5}</p>
+      {/* <p >Price: £{5}</p> */}
       </div>
   </div>
     // <div key={beer.id} className="beer-container card">
