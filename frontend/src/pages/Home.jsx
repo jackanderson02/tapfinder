@@ -32,10 +32,6 @@ const Home = () => {
         close_time_hour: 18,
         pub_url: "",
       },
-      // { id: 2, name: 'Pub 2', price: 20, stock_count: 0 },
-      // { id: 3, name: 'Pub 3', price: 30, stock_count: 5 },
-      // { id: 4, name: 'Pub 4', price: 40, stock_count: 0 },
-      // { id: 5, name: 'Pub 5', price: 50, stock_count: 1000 },
     ];
 
     setPubs(initialPubs);
