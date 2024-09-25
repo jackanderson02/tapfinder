@@ -15,25 +15,16 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import { BasketContext } from './components/BasketContext';
+import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Basket from './pages/Basket';
 import Cookies from 'js-cookie'
 
 
 const App = () => {
-  let initBasketState;
 
-  const basketCookie = Cookies.get('basket');
-
-  if (basketCookie) {
-    initBasketState = JSON.parse(basketCookie); // Parse the stringified cookie to an object
-  } else {
-    initBasketState = {};
-  }
-
-  const [basket, setBasket] = useState(initBasketState);
   return (
-    <BasketContext.Provider value={{basket, setBasket}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -41,7 +32,6 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </BasketContext.Provider>
   );
 };
 
