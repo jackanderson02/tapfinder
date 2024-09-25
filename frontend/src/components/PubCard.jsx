@@ -10,6 +10,7 @@ import Beer from "./Beer";
 
 const PubCard = ({ pub}) => {
 
+    const [clicked, setClicked] = useState(true)
     const [beers, setBeers] = useState([]);
 
     const fetchBeers = async () => {
@@ -30,8 +31,10 @@ const PubCard = ({ pub}) => {
         fetchBeers(); 
     }, []); 
 
-    return(
-        <>
+    return (
+        <div>
+        {clicked && (
+            <>
             <div key={pub.id} className="card" onClick={() => pubClicked(pub)}>
                 <img  src={pub.pub_url} className="card-img-top" alt={pub.name} />
                 <div className="card-body">
@@ -49,12 +52,12 @@ const PubCard = ({ pub}) => {
                 }
 
             </Stack>
-                
-                
-            
-
         </>
-    )
+    )}
+
+            
+        </div>
+    );
 }
 
 Beer.propTypes = {
