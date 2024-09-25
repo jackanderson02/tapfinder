@@ -16,6 +16,8 @@ const Home = () => {
         close_time_hour: 20,
         pub_url:
           "https://movie-locations.com/movies/s/Shaun-Of-The-Dead-Monson-Road.jpg",
+        lat: [51.4761],
+        lng: [-0.0015],
       },
       {
         id: 2,
@@ -24,6 +26,8 @@ const Home = () => {
         close_time_hour: 23,
         pub_url:
           "https://cdn.prod.website-files.com/647991321943a79a7deddbb2/65ed8f0da756275eb6db2308_655f32e7367b50bb663da593_%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%258F%2596%25E7%2595%25AB%25E9%259D%25A2%25202023-11-23%2520190920.png",
+        lat: [53.4631],
+        lng: [-2.2913],
       },
       {
         id: 3,
@@ -31,6 +35,8 @@ const Home = () => {
         open_time_hour: 17,
         close_time_hour: 18,
         pub_url: "",
+        lat: [51.5033],
+        lng: [-0.1195],
       },
       // { id: 2, name: 'Pub 2', price: 20, stock_count: 0 },
       // { id: 3, name: 'Pub 3', price: 30, stock_count: 5 },
@@ -45,30 +51,28 @@ const Home = () => {
     fetchPubs(); // Call fetchPubs when the component mounts
   }, []); // Empty dependency array ensures this runs only once
 
-
   const [beers, setBeers] = useState([]);
 
   const fetchBeers = async () => {
     // For now just return some dummy data
-    const initialBeers= [
-      {id: 1, name: "Thatchers", type : "cider"},
-      {id: 2, name: "Guiness", type : "Stout"},
-      {id: 3, name: "Fosters", type : "Lager"},
+    const initialBeers = [
+      { id: 1, name: "Thatchers", type: "cider" },
+      { id: 2, name: "Guiness", type: "Stout" },
+      { id: 3, name: "Fosters", type: "Lager" },
     ];
 
     setBeers(initialBeers);
   };
 
   useEffect(() => {
-    fetchBeers(); 
-  }, []); 
-
+    fetchBeers();
+  }, []);
 
   return (
     <>
       <h2>Welcome to Tapfinder</h2>
       <PubList pubs={pubs} beers={beers}></PubList>
-      <Map></Map>
+      <Map prop={pubs}></Map>
     </>
   );
 };
