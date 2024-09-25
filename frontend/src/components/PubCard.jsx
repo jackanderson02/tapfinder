@@ -15,16 +15,26 @@ const PubCard = ({ pub}) => {
 
     const fetchBeers = async () => {
         // For now just return some dummy data
-        const initialBeers= [
-        {id: 1, name: "Thatchers", type : "cider", 
-            beer_url: "https://www.ukglassware.com/cdn/shop/products/6A8D1564-44B9-4226-BB10-8182673C74E0.jpg?v=1661450365"},
-        {id: 2, name: "Guinness", type : "Stout", 
-            beer_url:"https://static.standard.co.uk/2022/01/21/18/d9a4ce0ab5b745accc3208b9ff4e1577Y29udGVudHNlYXJjaGFwaSwxNjQyODY4NTkz-2.61189514.jpg?width=1200&height=1200&fit=crop"},
-        {id: 3, name: "Fosters", type : "Lager", 
-            beer_url:"https://i2-prod.hulldailymail.co.uk/news/uk-world-news/article8592028.ece/ALTERNATES/s810/0_PinPep_Fosters_Campaign_011JPG.jpg"},
-        ];
+        // const initialBeers= [
+        // {id: 1, name: "Thatchers", type : "cider", 
+        //     beer_url: "https://www.ukglassware.com/cdn/shop/products/6A8D1564-44B9-4226-BB10-8182673C74E0.jpg?v=1661450365"},
+        // {id: 2, name: "Guinness", type : "Stout", 
+        //     beer_url:"https://static.standard.co.uk/2022/01/21/18/d9a4ce0ab5b745accc3208b9ff4e1577Y29udGVudHNlYXJjaGFwaSwxNjQyODY4NTkz-2.61189514.jpg?width=1200&height=1200&fit=crop"},
+        // {id: 3, name: "Fosters", type : "Lager", 
+        //     beer_url:"https://i2-prod.hulldailymail.co.uk/news/uk-world-news/article8592028.ece/ALTERNATES/s810/0_PinPep_Fosters_Campaign_011JPG.jpg"},
+        // ];
 
-        setBeers(initialBeers);
+        // setBeers(initialBeers);
+
+        try {
+                const response = await fetch('http://localhost:5000/api/endpoint'); // Update with your endpoint
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const result = await response.json();
+                setData(result);git 
+            } catch (err) {
+                setError(err);
     };
 
     useEffect(() => {
