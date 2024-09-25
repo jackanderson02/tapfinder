@@ -32,13 +32,7 @@ def get_db_connection():
     )
     return conn
 
-@app.route('/', methods=['GET'])
-def get_root():
-    return "Hello World"
-
-@app.route('/pubs', methods=['GET'])
-def get_pubs():
-    pubs_list = [
+pubs_list = [
          {
         "id": 1,
         "name": "The Winchester",
@@ -46,6 +40,7 @@ def get_pubs():
         "close_time_hour": 20,
         "pub_url":
           "https://movie-locations.com/movies/s/Shaun-Of-The-Dead-Monson-Road.jpg",
+        "beers": [1, 2, 3]
       },
       {
         "id": 2,
@@ -54,6 +49,7 @@ def get_pubs():
         "close_time_hour": 23,
         "pub_url":
           "https://cdn.prod.website-files.com/647991321943a79a7deddbb2/65ed8f0da756275eb6db2308_655f32e7367b50bb663da593_%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%258F%2596%25E7%2595%25AB%25E9%259D%25A2%25202023-11-23%2520190920.png",
+        "beers": [1]
       },
       {
         id: 3,
@@ -61,13 +57,11 @@ def get_pubs():
         "open_time_hour": 17,
         "close_time_hour": 18,
         "pub_url": "",
+        "beers": [2, 3]
       }
     ]
-    return jsonify(pubs_list)
 
-@app.route('/beers', methods=['GET'])
-def get_beers():
-    beers_list = [
+beers_list = [
          {"id": 1, "name": "Thatchers", "type" : "cider",
             "beer_url": "https://www.ukglassware.com/cdn/shop/products/6A8D1564-44B9-4226-BB10-8182673C74E0.jpg?v=1661450365"},
         {"id": 2, "name": "Guinness", "type" : "Stout",
@@ -75,6 +69,17 @@ def get_beers():
         {"id": 3, "name": "Fosters", "type" : "Lager",
             "beer_url":"https://i2-prod.hulldailymail.co.uk/news/uk-world-news/article8592028.ece/ALTERNATES/s810/0_PinPep_Fosters_Campaign_011JPG.jpg"}
     ]
+
+@app.route('/', methods=['GET'])
+def get_root():
+    return "Hello World"
+
+@app.route('/pubs', methods=['GET'])
+def get_pubs():
+    return jsonify(pubs_list)
+
+@app.route('/beers', methods=['GET'])
+def get_beers():
     return jsonify(beers_list)
 
 @app.route('/pubs/<int:pub_id>/beers', methods=['GET'])
