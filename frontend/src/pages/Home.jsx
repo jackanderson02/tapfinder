@@ -26,8 +26,8 @@ const Home = () => {
         close_time_hour: 23,
         pub_url:
           "https://cdn.prod.website-files.com/647991321943a79a7deddbb2/65ed8f0da756275eb6db2308_655f32e7367b50bb663da593_%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%258F%2596%25E7%2595%25AB%25E9%259D%25A2%25202023-11-23%2520190920.png",
-        lat: 53.4631,
-        lng: -2.2913,
+        lat: 51.4633,
+        lng: -0.1913,
       },
       {
         id: 3,
@@ -38,6 +38,20 @@ const Home = () => {
         lat: 51.5033,
         lng: -0.1195,
       },
+
+      {
+        id: 4,
+        name: "Chug Chug Go!",
+        open_time_hour: 13,
+        close_time_hour: 20,
+        pub_url: "",
+        lat: 51.5128,
+        lng: -0.0918,
+      },
+      // { id: 2, name: 'Pub 2', price: 20, stock_count: 0 },
+      // { id: 3, name: 'Pub 3', price: 30, stock_count: 5 },
+      // { id: 4, name: 'Pub 4', price: 40, stock_count: 0 },
+      // { id: 5, name: 'Pub 5', price: 50, stock_count: 1000 },
     ];
 
     setPubs(initialPubs);
